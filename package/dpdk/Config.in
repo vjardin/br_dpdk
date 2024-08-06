@@ -1,0 +1,10 @@
+config BR2_PACKAGE_DPDK
+	bool "dpdk"
+	depends on BR2_TOOLCHAIN_HAS_THREADS # glibc or uClibc toolchain required
+	select BR2_PACKAGE_LIBBSD
+	help
+	  DPDK (Data Plane Development Kit) is a set of libraries
+	  and drivers for fast packet processing.
+
+	  http://dpdk.org/
+
