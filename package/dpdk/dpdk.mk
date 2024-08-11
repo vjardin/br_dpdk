@@ -4,8 +4,8 @@
 #
 #################################################################################
 
-# DPDK_VERSION = main
-DPDK_VERSION ?= 24.03
+DPDK_VERSION = main
+# DPDK_VERSION ?= 24.03
 DPDK_SITE = $(call github,DPDK,dpdk,v$(DPDK_VERSION))
 DPDK_SITE_METHOD = git
 DPDK_LICENSE = BSD-3-Clause
