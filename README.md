@@ -57,6 +57,12 @@ system with the `-j` flag to utilize all available processors:
 brmake BR2_EXTERNAL=${BR2EXT} -j$(nproc --all)
 ```
 
+When you build it for any of the Buildroot target, you shall enable:
+```
+BR2_PACKAGE_DPDK=y
+```
+for your Buildroot's config.
+
 ## Additional Resources
 
 For more detailed information on working with external packages in Buildroot, refer to the official Buildroot documentation:
