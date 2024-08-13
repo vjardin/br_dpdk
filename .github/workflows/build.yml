@@ -1,0 +1,58 @@
+name: Buildroot and br_dpdk Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  br_build:
+    name: Buildroot setup and build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the br_dpdk repository
+      uses: actions/checkout@v4
+      with:
+        repository: 'vjardin/br_dpdk'
+        path: 'br_dpdk'
+
+    - name: Checkout GitLab's Buildroot using the github mirror
+      uses: actions/checkout@v4
+      with:
+        repository: 'buildroot/buildroot'
+        ref: 'master'
+        path: 'br'
+        fetch-depth: 1  # Fetch only the latest commit to save time
+
+    - name: Install build dependencies
+      uses: ConorMacBride/install-package@v1
+      with:
+        apt: |
+          git \
+          wget \
+          cpio \
+          unzip \
+          rsync \
+          bc \
+          file \
+          bison \
+          yacc \
+          flex \
+          texinfo \
+          build-essential \
+          qemu-system-x86 \
+          qemu-utils
+
+    - name: Configure Buildroot for QEMU x86_64
+      run: |
+        cd br
+        BR2_DL_DIR=../br_dl make BR2_EXTERNAL=../br_dpdk O=../br_output qemu_x86_64_defconfig
+
+    - name: Compile Buildroot and br_dpdk package
+      run: |
+        cd br
+        BR2_DL_DIR=../br_dl make BR2_EXTERNAL=../br_dpdk O=../br_output -j$(nproc --all)
