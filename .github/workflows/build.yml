@@ -28,6 +28,10 @@ jobs:
         path: 'br'
         fetch-depth: 1  # Fetch only the latest commit to save time
 
+    - name: Check available cores
+      run: |
+        nproc --all
+
     - name: Install build dependencies
       uses: ConorMacBride/install-package@v1
       with:

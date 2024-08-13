@@ -23,7 +23,6 @@ DPDK_DEPENDENCIES += zlib
 
 DPDK_MARCH = $(BR2_ARCH)
 DPDK_MTUNE = $(BR2_ARCH) # not used yet
-ARCH=$(DPDK_MARCH)
 GCC_TARGET_CPU=$(BR2_GCC_TARGET_ARCH)
 
 # see meson_options.txt from DPDK
