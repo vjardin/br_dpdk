@@ -12,4 +12,3 @@ config BR2_PACKAGE_DPDK
 	  and drivers for fast packet processing.
 
 	  http://dpdk.org/
-
