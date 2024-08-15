@@ -68,3 +68,16 @@ for your Buildroot's config.
 For more detailed information on working with external packages in Buildroot, refer to the official Buildroot documentation:
 
 - [Buildroot External Packages Documentation](https://buildroot.org/downloads/manual/manual.html#outside-br-custom)
+
+# Buildroot upstream
+
+Once DPDK has been fine-tuned as an external package, it should be submitted
+upstream to the Buildroot project.
+
+```
+ ...
+utils/docker-run make check-package
+git format-patch -M -n -s -o ../outgoing origin/master
+utils/get-developers ../outgoing/*
+git send-email --to buildroot@buildroot.org --cc "xyz from get-developers" ../outgoing/00X-filename
+```
