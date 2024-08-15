@@ -61,7 +61,7 @@ jobs:
     - name: Set the Buildroot .config
       run: |
         cd br
-        sed -i 's/# BR2_TARGET_DPDK is not set/BR2_TARGET_DPDK=y/' ../br_output/.config
+        sed -i 's/# BR2_PACKAGE_DPDK is not set/BR2_PACKAGE_DPDK=y/' ../br_output/.config
         BR2_DL_DIR=../br_dl make BR2_EXTERNAL=../br_dpdk O=../br_output olddefconfig
 
     - name: Compile Buildroot and br_dpdk package
