@@ -1,9 +1,11 @@
 config BR2_PACKAGE_DPDK
 	bool "dpdk"
-	depends on BR2_TOOLCHAIN_HAS_THREADS # glibc or uClibc toolchain required
-	select BR2_PACKAGE_HOST_PYTHON_PYELFTOOLS
+	depends on BR2_PACKAGE_LIBBSD_ARCH_SUPPORTS # libbsd
+	depends on !BR2_STATIC_LIBS # libbsd
+	depends on BR2_TOOLCHAIN_HAS_THREADS # libbsd
+	depends on BR2_USE_WCHAR # libbsd, libexecinfo
 	select BR2_PACKAGE_LIBBSD
-	select BR2_PACKAGE_LIBEXECINFO
+	select BR2_PACKAGE_LIBEXECINFO if !BR2_TOOLCHAIN_USES_GLIBC
 	select BR2_PACKAGE_JANSSON
 	select BR2_PACKAGE_LIBPCAP
 	select BR2_PACKAGE_ZLIB
@@ -12,3 +14,7 @@ config BR2_PACKAGE_DPDK
 	  and drivers for fast packet processing.
 
 	  http://dpdk.org/
+
+comment "dpdk needs a toolchain w/ dynamic library, threads, wchar"
+	depends on BR2_PACKAGE_LIBBSD_ARCH_SUPPORTS
+	depends on BR2_STATIC_LIBS || !BR2_TOOLCHAIN_HAS_THREADS || !BR2_USE_WCHAR
