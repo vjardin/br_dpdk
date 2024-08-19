@@ -16,8 +16,8 @@ DPDK_LICENSE = \
 	MIT
 
 DPDK_LICENSE_FILES = \
-	license/bsd-3-clause.txt \
 	license/README \
+	license/bsd-3-clause.txt \
 	license/bsd-2-clause.txt \
 	license/exceptions.txt \
 	license/gpl-2.0.txt \
