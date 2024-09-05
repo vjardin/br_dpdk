@@ -2,6 +2,8 @@
 
 This guide provides instructions for building a Buildroot system with the `DPDK` package included as an external package.
 
+It is a placeholder reposirty while it is being reviewed to be [upstremed for `Buildroot`](https://patchwork.ozlabs.org/project/buildroot/patch/20240828102106.55640-2-vjardin@free.fr/)
+
 ## Prerequisites
 
 - Familiarity with Buildroot and its build system.
