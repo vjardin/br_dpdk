@@ -10,6 +10,7 @@ does not support "x86_64" arch flag.
 Upstream-Status: Inappropriate [ yocto specific to set cpu_instruction_set ]
 
 Signed-off-by: Lee Chee Yang <chee.yang.lee@intel.com>
+Upstream: https://git.yoctoproject.org/meta-dpdk/plain/recipes-extended/dpdk/dpdk/0001-config-meson-get-cpu_instruction_set-from-meson-opti.patch
 ---
  config/meson.build | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
