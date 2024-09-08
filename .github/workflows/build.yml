@@ -61,7 +61,28 @@ jobs:
     - name: Set the Buildroot .config
       run: |
         cd br
-        sed -i 's/# BR2_PACKAGE_DPDK is not set/BR2_PACKAGE_DPDK=y/' ../br_output/.config
+        cat > ../br_output/.config <<- 'EOFCONFIG'
+          BR2_x86_64=y
+          BR2_x86_nehalem=y
+          BR2_ROOTFS_POST_BUILD_SCRIPT="board/qemu/x86_64/post-build.sh"
+          BR2_ROOTFS_POST_IMAGE_SCRIPT="board/qemu/post-image.sh"
+          BR2_ROOTFS_POST_SCRIPT_ARGS="qemu_x86_64_defconfig"
+          BR2_LINUX_KERNEL=y
+          BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
+          BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE="board/qemu/x86_64/linux.config"
+          BR2_LINUX_KERNEL_NEEDS_HOST_LIBELF=y
+          BR2_PACKAGE_DPDK=y
+          BR2_PACKAGE_LIBBPF=y
+          BR2_PACKAGE_RDMA_CORE=y
+          BR2_PACKAGE_OPENSSL=y
+          BR2_PACKAGE_DTC=y
+          BR2_PACKAGE_JANSSON=y
+          BR2_PACKAGE_LIBPCAP=y
+          BR2_PACKAGE_NUMACTL=y
+          BR2_TARGET_ROOTFS_EXT2=y
+          BR2_TARGET_ROOTFS_EXT2_SIZE="200M"
+          # BR2_TARGET_ROOTFS_TAR is not set
+        EOFCONFIG
         BR2_DL_DIR=../br_dl make BR2_EXTERNAL=../br_dpdk O=../br_output olddefconfig
 
     - name: Compile Buildroot and br_dpdk package
