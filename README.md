@@ -83,3 +83,14 @@ git format-patch -M -n -s -o ../outgoing origin/master
 utils/get-developers ../outgoing/*
 git send-email --to buildroot@buildroot.org --cc "xyz from get-developers" ../outgoing/00X-filename
 ```
+
+# TODO
+
+Currently, the RISCV and PowerPC targets are disabled because the DPDK's Meson build framework does
+not fully support specific cross-compilation scenarios for these architectures.
+
+If they are enabled, the following errors occur:
+```
+powerpc64le-power8-glibc/build/dpdk-24.07/config/meson.build:186:8: ERROR: Problem encountered: Compiler does not support "" arch flag.
+riscv64-glibc/build/dpdk-24.07/config/meson.build:186:8: ERROR: Problem encountered: Compiler does not support "" arch flag.
+```
