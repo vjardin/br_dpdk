@@ -8,12 +8,12 @@ DPDK_VERSION = 24.07
 DPDK_SOURCE = dpdk-$(DPDK_VERSION).tar.xz
 DPDK_SITE = https://fast.dpdk.org/rel
 DPDK_LICENSE = \
-	BSD-3-Clause, \
+	BSD-3-Clause (legacy), \
 	BSD-2-Clause, \
 	GPL-2.0, \
 	ISC, \
 	LGPL-2.1, \
-	MIT
+	MIT (drivers/net/gve/base)
 
 # Only the Windows target has the 2 following licenses:
 # - license/bsd-2-clause.txt
@@ -35,9 +35,9 @@ DPDK_LICENSE = \
 # The legacy and historical license of the DPDK is BSD-3-clause.
 DPDK_LICENSE_FILES = \
 	license/README \
-	license/bsd-3-clause.txt (legacy) \
+	license/bsd-3-clause.txt \
 	license/exceptions.txt \
-	license/mit.txt (drivers/net/gve/base)
+	license/mit.txt
 
 DPDK_DEPENDENCIES = \
 	host-pkgconf \
