@@ -89,3 +89,8 @@ jobs:
       run: |
         cd br
         BR2_DL_DIR=../br_dl make BR2_EXTERNAL=../br_dpdk O=../br_output -j$(nproc --all)
+
+    - name: legal info of Buildroot and br_dpdk package
+      run: |
+        cd br
+        BR2_DL_DIR=../br_dl make BR2_EXTERNAL=../br_dpdk O=../br_output legal-info
