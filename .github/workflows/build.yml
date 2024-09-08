@@ -49,6 +49,9 @@ jobs:
           yacc \
           flex \
           texinfo \
+          python3 \
+          python3-aiohttp \
+          python3-distutils-extra \
           build-essential \
           qemu-system-x86 \
           qemu-utils
@@ -94,3 +97,8 @@ jobs:
       run: |
         cd br
         BR2_DL_DIR=../br_dl make BR2_EXTERNAL=../br_dpdk O=../br_output legal-info
+
+    - name: pkg-stats of Buildroot and br_dpdk package
+      run: |
+        cd br
+        BR2_DL_DIR=../br_dl make BR2_EXTERNAL=../br_dpdk O=../br_output pkg-stats
