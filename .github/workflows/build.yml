@@ -52,6 +52,7 @@ jobs:
           python3 \
           python3-aiohttp \
           python3-distutils-extra \
+          python3-flake8 \
           build-essential \
           qemu-system-x86 \
           qemu-utils
@@ -102,3 +103,8 @@ jobs:
       run: |
         cd br
         BR2_DL_DIR=../br_dl make BR2_EXTERNAL=../br_dpdk O=../br_output pkg-stats
+
+    - name: check-package of br_dpdk
+      run: |
+        cd br
+        utils/check-package -b  ../br_dpdk/package/dpdk/*
