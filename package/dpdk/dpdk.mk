@@ -9,7 +9,7 @@ DPDK_SOURCE = dpdk-$(DPDK_VERSION).tar.xz
 DPDK_SITE = https://fast.dpdk.org/rel
 DPDK_LICENSE = \
 	BSD-3-Clause, \
-	BSD-2-Clause,\
+	BSD-2-Clause, \
 	GPL-2.0, \
 	ISC, \
 	LGPL-2.1, \
