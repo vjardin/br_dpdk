@@ -108,3 +108,8 @@ jobs:
       run: |
         cd br
         utils/check-package -b  ../br_dpdk/package/dpdk/*
+
+    - name: test-pkg for br_dpdk (1h+)
+      run: |
+        cd br
+        BR2_DL_DIR=../br_dl BR2_EXTERNAL=../br_dpdk utils/test-pkg -a -p dpdk
