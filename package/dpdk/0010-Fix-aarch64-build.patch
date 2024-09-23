@@ -13,7 +13,9 @@ cover all situations, it can still be useful here in Buildroot, as it
 fixes the Aarch64 cross compilation.
 
 Signed-off-by: Julien Olivain <ju.o@free.fr>
-Upstream: https://github.com/DPDK/dpdk/commit/c5ea091a74bbfa5fb095d2c6fe15be3a7b15cacb
+Signed-off-by: Vincent Jardin <vjardin@free.fr>
+Upstream: to be proposed https://patches.dpdk.org/project/dpdk/list/
+Links: cherry-picked from https://github.com/jolivain/dpdk/commit/c5ea091a74bbfa5fb095d2c6fe15be3a7b15cacb
 ---
  config/meson.build | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
