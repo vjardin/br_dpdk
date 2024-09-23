@@ -8,6 +8,10 @@ seems incorrect or incomplete. This patch changes the condition in order
 to better match the comment (that the options are decided in
 config/arm/meson.build). It actually test for the architecture name.
 
+While this patch might need some discussion with DPDK maintainers to
+cover all situations, it can still be useful here in Buildroot, as it
+fixes the Aarch64 cross compilation.
+
 Signed-off-by: Julien Olivain <ju.o@free.fr>
 Upstream: https://github.com/DPDK/dpdk/commit/c5ea091a74bbfa5fb095d2c6fe15be3a7b15cacb
 ---
