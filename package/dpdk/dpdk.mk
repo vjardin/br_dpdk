@@ -8,11 +8,7 @@ DPDK_VERSION = 24.07
 DPDK_SOURCE = dpdk-$(DPDK_VERSION).tar.xz
 DPDK_SITE = https://fast.dpdk.org/rel
 DPDK_LICENSE = \
-	BSD-2-Clause, \
 	BSD-3-Clause, \
-	BSD=-3-Clause OR GPL-2.0, \
-	BSD=-3-Clause OR LGPL-2.1, \
-	ISC, \
 	MIT
 
 # Only the Windows target has the 2 following licenses:
